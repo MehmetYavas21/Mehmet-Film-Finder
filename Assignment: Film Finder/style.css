@@ -1,0 +1,136 @@
+body{
+    margin: auto;
+    width: 90%;
+    background-color: #222;
+}
+.search-and-header input:hover{
+    opacity: 0.8;
+    color: #fff;
+    background-color: #000;
+}
+nav{
+    height: 60px;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+h1{
+    margin: auto;
+    padding-top: 25px;
+    padding-left: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #333;
+    height: 70px;
+}
+input{
+    cursor: pointer;
+}
+label{
+    color: #fff;
+}
+ul li{
+    list-style: none;
+}
+.all-movies-home:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+.best-movies{
+    padding-left: 0%;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-row-gap: 8px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+.latest-movies-since-2014:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+.avenger-movies:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+.xMen-movies:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+.princess-movies:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+.batman-movies:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+img{
+    width: 100%;
+}
+
+
+
+@media (min-width: 460px) {
+    .best-movies {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 8px;
+      grid-row-gap: 8px;
+      padding-top: 0px;
+    }
+    nav{
+        height: 50px;
+        align-content: center;
+    }
+}
+
+@media (min-width: 700px) {
+    .best-movies {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 8px;
+      grid-row-gap: 8px;
+      padding-top: 0px;
+    }
+    nav{
+        height: 40px;
+        align-content: center;
+    }
+}
+@media (min-width: 1024px) {
+    body {
+      max-width: 1024px;
+      margin: auto;
+      margin-top: 20px;
+    }
+    .best-movies {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      grid-row-gap: 8px;
+      padding-top: 0px;
+    }
+    nav{
+        height: 30px;
+    }
+}
