@@ -1,0 +1,219 @@
+body{
+    margin: auto;
+    width: 90%;
+    background-color: #222;
+}
+.search-and-header input:hover{
+    opacity: 0.8;
+    color: #fff;
+    background-color: #000;
+}
+nav{
+    height: auto;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+
+}
+h1{
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-shadow: 2px 2px 5px rgb(151, 232, 151);
+    box-shadow: 0 0 10px 10px rgb(151, 232, 151);
+    padding-left: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #333;
+    height: auto;
+}
+h1:hover{
+    padding-left: 20%;
+    background-color: #555;
+    text-shadow: 2px 2px 5px #000;
+    box-shadow: 0 0 10px 10px #000;
+    transition: all 0.5s ease-in;
+}
+#my-head{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+
+}
+input{
+    cursor: pointer;
+}
+label{
+    color: #fff;
+}
+ul li{
+    list-style: none;
+}
+.all-movies-home{
+    opacity: 1;
+}
+.all-movies-home:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+    opacity: 0.7;
+    transition: all 0.5s ease-in;
+}
+.best-movies{
+    padding-left: 0%;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-row-gap: 8px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+.latest-movies-since-2014:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+    opacity: 0.7;
+    transition: all 0.5s ease-in;
+}
+.avenger-movies:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+    opacity: 0.7;
+    transition: all 0.5s ease-in;
+}
+.xMen-movies:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+    opacity: 0.7;
+    transition: all 0.5s ease-in;
+}
+.princess-movies:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+    opacity: 0.7;
+    transition: all 0.5s ease-in;
+}
+.batman-movies:hover{
+    border: 2px #222 solid;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-top: 3px;
+    opacity: 0.7;
+    transition: all 0.5s ease-in;
+}
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+.my-foot{
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #888;
+   
+}
+.my-foot .ul-in-footer{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 0%;
+    display: flex;
+    flex-direction: column;
+}
+.my-foot .ul-in-footer a{
+    border-radius: 15px;
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+}
+.my-foot .ul-in-footer li{
+    text-transform: uppercase;
+    padding: 5px;
+}
+.my-foot .ul-in-footer a:hover{
+    background-color: rgb(88, 85, 85);
+    color: #000; 
+    font-size: large;
+    border-radius: 5px;
+    transition: all 0.5s ease-in;
+}
+
+
+
+
+@media (min-width: 460px) {
+    .best-movies {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 8px;
+      grid-row-gap: 8px;
+      padding-top: 0px;
+    }
+    nav{
+        height: 50px;
+        align-content: center;
+    }
+    .my-foot .ul-in-footer{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 700px) {
+    .best-movies {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 8px;
+      grid-row-gap: 8px;
+      padding-top: 0px;
+    }
+    nav{
+        height: 40px;
+        align-content: center;
+    }
+    .my-foot .ul-in-footer{
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media (min-width: 1024px) {
+    body {
+      max-width: 1024px;
+      margin: auto;
+      margin-top: 20px;
+    }
+    .best-movies {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      grid-row-gap: 8px;
+      padding-top: 0px;
+    }
+    nav{
+        height: 30px;
+    }
+    .my-foot .ul-in-footer{
+        display: flex;
+        flex-direction: row;
+    }
+}
