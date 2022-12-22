@@ -234,5 +234,61 @@ headerParent.addEventListener('click' , function(e){
     location.reload()
 });
 
+/*
 // try switch
 
+// TRY TO WRITE NEW CODES TO ADD EVENTLISTENER IN A MORE ELEGANCE WAY
+// collecting all buttons
+const clearUl = function(){
+    let deleteUl =document.getElementById('movies').getElementsByTagName('ul');
+    deleteUl.innerHTML=[];
+};
+const radiobuttons = document.getElementsByClassName('radio-button');
+
+const choosenTitle = function(){
+    for(button of radiobuttons){
+        console.log(button)
+    };
+}
+
+radiobuttons[1].addEventListener('click' ,function(){
+        switch(choosenTitle){
+            case 'latest-movie-btn':
+                const latestMovies2014XXX = movies.filter((movie) => 
+                movie.year >= 2014
+                )
+                clearUl();
+                addAllMoviesToDom(latestMovies2014XXX);
+                break;
+            case 'avengers-movie-btn':
+                const avengersMovieXXX=movies.filter((movie) => 
+                    movie.title.includes("Avenger")
+                    );
+                    clearUl();
+                    addAllMoviesToDom(avengersMovieXXX);
+                    break;
+            case 'x-men-movies-btn':
+                const xMenMovieXXX=movies.filter((movie) => 
+                    movie.title.includes("X-Men")
+                    );
+                    clearUl();
+                    addAllMoviesToDom(xMenMovieXXX);
+                    break;
+            case 'princess-movies-btn':
+                const princessMovieXXX=movies.filter((movie) => 
+                    movie.title.includes("Princes")
+                    );
+                    clearUl();
+                    addAllMoviesToDom(princessMovieXXX);
+                    break;
+            case 'batman-movies-btn':
+                const batmanMovieXXX=movies.filter((movie) => 
+                    movie.title.includes("Batman")
+                    );
+                    clearUl();
+                    addAllMoviesToDom(batmanMovieXXX);
+                    break;
+        }
+    });
+
+*/
