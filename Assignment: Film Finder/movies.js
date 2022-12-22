@@ -234,6 +234,46 @@ headerParent.addEventListener('click' , function(e){
     location.reload()
 });
 
+// SEARCH BUTTOn
+
+function searchFunction(){
+    let inputButtonParent = document.getElementById('search-button');
+    let submitButtonParent = document.getElementById('submit-button');
+    let moviesParent = document.querySelector('#best-movies-ID');
+    let movieTitle = movies.map((movie) => movie.title.toUpperCase());
+    //let movieName= allMoviesTitle.toUpperCase();
+    let userEntry = inputButtonParent.value.toUpperCase();
+    //console.log(moviesParent)
+    if(movieTitle.includes(userEntry)){
+        moviesParent.innerHTML='';
+        console.log(userEntry);
+        addAllMoviesToDom().filter((movie) => movie.title.includes(userEntry));
+    }
+    else{
+console.log('there is no such movie')
+moviesParent.innerHTML=' Please search again';
+moviesParent.style.fontSize= '60px';
+moviesParent.style.color= 'red';
+
+
+    }
+    // for(let i=0; i<movies.length; i++){
+    //     let listedMovies =document.getElementById('movies').getElementsByTagName('ul')[0];
+    //     textValue = listedMovies.textContent || listedMovies.innerText;
+    //     if(textValue.toUpperCase().indexOf(userEntry) > -1) {
+    //         return userEntry;
+    //     }
+
+    // }
+    // if(movies.title.includes(userEntry)){
+    //     moviesParent.push(userEntry);
+    //     for(i=0; i<movies.length; i++){
+    //         let searchedMovie = moviesParent[i];
+    //         return searchedMovie;
+    //     }
+    // }
+}
+
 /*
 // try switch
 
