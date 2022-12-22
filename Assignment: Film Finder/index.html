@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style.css" name="style/text">
+    <script defer src="script.js"></script>
+    <script defer src="movies.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -15,23 +17,23 @@
         </div>
         <nav class="radio-buttons" id="film-style">
             <div>
-                <input type="radio" id="latest-movie-btn" name="movies" value="latest-movie-btn" >
+                <input type="radio" id="latest-movie-btn" class="radio-button" name="movies" value="latest-movie-btn" >
                 <label for="latest-movie-btn">The Latest Movies</label>
             </div>
             <div>
-                <input type="radio" id="avengers-movie-btn" name="movies" value="avengers-movie-btn" >
+                <input type="radio" id="avengers-movie-btn" class="radio-button" name="movies" value="avengers-movie-btn" >
                 <label for="avengers-movie-btn">Avengers Movies</label>
             </div>
             <div>
-                <input type="radio" id="x-men-movies-btn" name="movies" value="x-men-movies-btn" >
+                <input type="radio" id="x-men-movies-btn" class="radio-button" name="movies" value="x-men-movies-btn" >
                 <label for="x-men-movies-btn"> X-Men Movies</label>
             </div>
             <div>
-                <input type="radio" id="princess-movies-btn" name="movies" value="princess-movies-btn" >
+                <input type="radio" id="princess-movies-btn" class="radio-button" name="movies" value="princess-movies-btn" >
                 <label for="princess-movies-btn">Princess Movies</label>
             </div>
             <div>
-                <input type="radio" id="batman-movies-btn" name="movies" value="batman-movies-btn" >
+                <input type="radio" id="batman-movies-btn" class="radio-button" name="movies" value="batman-movies-btn" >
                 <label for="batman-movies-btn">Batman Movies</label>
             </div>
         </nav>
@@ -42,11 +44,18 @@
         </ul>
     </main>
     <footer>
+        <div class="my-foot">
+            <div>
+                <ul class="ul-in-footer">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Jobs</a></li>
+                    <li><a href="">Suggestions</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
 
     </footer>
 
-    <script src="script.js"></script>
-    <script src="movies.js"></script>
-    
 </body>
 </html>
