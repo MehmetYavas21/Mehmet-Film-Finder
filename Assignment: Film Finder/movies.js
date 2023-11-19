@@ -1,256 +1,91 @@
-
-//all movies poster
-
-console.log('all movies in array' , movies);
-
-// All Movies Title
-let allMoviesTitle = movies.map((title) => {
-    return title.title;
-});
-// console.log('Titles : ' ,allMoviesTitle);
-//All Movies poster
-let posterAllMovies = movies.map((poster) => poster.poster);
-// console.log('Posters : ' ,posterAllMovies);
-// All Movies IMDB ID
-let imdbAlMoviesID = movies.map((imdbID) => imdbID.imdbID);
-//console.log('IMDB Ids : ' , imdbAlMoviesID);
-// All movies years
-let yearsAllMovies = movies.map((year) => year.year);
-//console.log('Published on : ', yearsAllMovies);
-
 // Adding all Movies to the DOM one by one via FOR loop
-// to give each <li> element a poster/picture and a linkt to IMDB
-// But the link is not working although it's true !!!
-const addAllMoviesToDom= function(){
-    for(let i=0 ; i < posterAllMovies.length; i++){
+const addMoviesToDom= function(movie){
+    for(let i=0 ; i < movie.length; i++){
         let parentMoviesUl = document.querySelector('#best-movies-ID');
         let liForMovieList = document.createElement('li');
         liForMovieList.classList.add('all-movies-home');
         let linkToImdb =document.createElement('a');
-        linkToImdb.href="https://www.imdb.com/title/"+imdbAlMoviesID[i]+"/";
+        linkToImdb.href="https://www.imdb.com/title/"+movie[i].imdbID+"/";
         let imageForAllMovie = document.createElement('img');
         parentMoviesUl.appendChild(liForMovieList);
         liForMovieList.appendChild(linkToImdb);
         linkToImdb.appendChild(imageForAllMovie);        
-        imageForAllMovie.src=posterAllMovies[i];
-        //console.log('film poster ', i+1 , posterAllMovies[i]);
-    };
-};
-addAllMoviesToDom();
-
-// Latest Movies since 2014
-
-let latestMovies2014 = movies.filter((item) => {
-    return item.year >= 2014;
-});
-// console.log('latest movies since 2014: ' , latestMovies2014);
-let latestMoviePoster2014 = latestMovies2014.map((post) => post.poster);
-// console.log(latestMoviePoster2014);
-const latestMoviesImdbId =latestMovies2014.map((pic) => pic.imdbID); // Latest movies filtered IMDB IDs to add them in href with for loop
-// console.log('latest Movies IMDB IDs : ' , latestMoviesImdbId);
-
-// Latest movies in for loop, to give each <li> element a poster/picture
-const addLatestMoviesToDom = function() {
-    for(let i=0 ; i < latestMoviePoster2014.length; i++){
-        let newLiForLastMovies = document.createElement('li');
-        let newMovieParent = document.querySelector('#best-movies-ID');
-        let latestMoviesLink = document.createElement('a');
-        newLiForLastMovies.classList.add('latest-movies-since-2014');
-        let latestMoviesPoster = document.createElement('img');
-        latestMoviesLink.href="https://www.imdb.com/title/"+latestMoviesImdbId[i]+"/";
-        newMovieParent.appendChild(newLiForLastMovies);
-        newLiForLastMovies.appendChild(latestMoviesLink);
-        latestMoviesLink.appendChild(latestMoviesPoster);
-        latestMoviesPoster.src=latestMoviePoster2014[i];
-        // console.log(latestMoviePoster2014[i]);
+        imageForAllMovie.src=movie[i].poster;
     };
 };
 
-//Avengers Movies
+ addMoviesToDom(movies);
 
-let avengersMovie = movies.filter(movie => {
-    let includeAvenger = movie.title.includes("Avenger"); 
-    return includeAvenger;
-}); 
-// console.log('Avengers Movies: ' , avengersMovie);
-const avengerMoviesPoster = avengersMovie.map((film) => film.poster);
-// console.log(avengerMoviesPoster);
-const avengersImdbId = avengersMovie.map((link) => link.imdbID); // it will be use in eventlistener to add link to the poster
-
-// Avengers movies in for loop, to give each li element a poster
-const addAvengersMoviesToDom = function() {
-    for(let i=0 ; i < avengersMovie.length; i++){
-        let newLiForAvengersMovie = document.createElement('li');
-        let avengersMovieParent = document.getElementById('movies').getElementsByTagName('ul')[0];
-        newLiForAvengersMovie.classList.add('avenger-movies')
-        let avengersMoviePosterImg = document.createElement('img');
-        let avengersLink = document.createElement('a');
-        avengersLink.href="https://www.imdb.com/title/"+avengersImdbId[i]+"/";
-        avengersMovieParent.appendChild(newLiForAvengersMovie);
-        newLiForAvengersMovie.appendChild(avengersLink);
-        avengersLink.appendChild(avengersMoviePosterImg);
-        avengersMoviePosterImg.src=avengerMoviesPoster[i];
-        // console.log('Avengers Movie poster ', i, avengerMoviesPoster[i]);
-    };
-};
-// addAvengersMoviesToDom();
-
-//X-Men Movies
-
-let xMenMovie = movies.filter(movie => {
-    let includeXMen = movie.title.includes("X-Men"); 
-    return includeXMen;
-}); 
-// console.log('X-Men Movies: ' , xMenMovie);
-const xMenAllMoviePoster = xMenMovie.map((film) => film.poster);
-// console.log('X-Men Movies poster ' , xMenAllMoviePoster);
-const xMenImdb = xMenMovie.map((link) => link.imdbID); 
-
-// X-Men movies in for loop, to give each li element a poster
-const addXMenMoviesToDom = function() {
-    for(let i=0 ; i < xMenMovie.length ; i++){
-        let newLiForXMenMovie = document.createElement('li');
-        let xMenMovieParent = document.getElementById('movies').getElementsByTagName('ul')[0];
-        newLiForXMenMovie.classList.add('xMen-movies');
-        let xMenMoviePoster = document.createElement('img');
-        let xMenLinkImg = document.createElement('a');
-        xMenLinkImg.href="https://www.imdb.com/title/"+xMenImdb[i]+"/";
-        xMenMovieParent.appendChild(newLiForXMenMovie);
-        newLiForXMenMovie.appendChild(xMenLinkImg);
-        xMenLinkImg.appendChild(xMenMoviePoster);
-        xMenMoviePoster.src = xMenAllMoviePoster[i];
-        // console.log('X-Men Movie poster ', i , xMenAllMoviePoster[i]);
-    };
-};
-// addXMenMoviesToDom();
-
-// Princess Movies
-
-const princessMovie = movies.filter(movie => {
-    let includePrincess = movie.title.includes("Princess"); 
-    return includePrincess;
-}); 
-// console.log('Princess Movies: ' , princessMovie);
-const princessMoviesAllPoster = princessMovie.map((movie) => movie.poster);
-// console.log('Princess movies posters ' , princessMoviesAllPoster);
-const princessLinkImdb = princessMovie.map((link) => link.imdbID);
-
-// Princess movies in for loop, to give each li element a poster
-const addPrincessMoviesToDom = function() {
-    for(let i=0 ; i < princessMovie.length ; i++){
-        let newLiForPrincessMovie = document.createElement('li');
-        let princessMovieParent = document.getElementById('movies').getElementsByTagName('ul')[0];
-        newLiForPrincessMovie.classList.add('princess-movies');
-        let princessMoviePoster = document.createElement('img');
-        let princessLinkImg = document.createElement('a')
-        princessLinkImg.href="https://www.imdb.com/title/"+princessLinkImdb[i]+"/";
-        princessMovieParent.appendChild(newLiForPrincessMovie);
-        newLiForPrincessMovie.appendChild(princessLinkImg);
-        princessLinkImg.appendChild(princessMoviePoster)
-        princessMoviePoster.src = princessMoviesAllPoster[i];
-        // console.log('Princess Movie poster ', i , princessMoviesAllPoster[i]);
-    };
-};
-// addPrincessMoviesToDom();
-
-
-//Batman Movies
-
-const batmanMovie = movies.filter(movie => {
-    let includeBatman = movie.title.includes("Batman"); 
-    return includeBatman;
-}); 
-// console.log('Batman Movies: ', batmanMovie);
-const batmanMoviesAllPoster = batmanMovie.map((movie) => movie.poster);
-// console.log('All Batman movies poster :' , batmanMoviesAllPoster);
-const batmanImdbLinks = batmanMovie.map((link) => link.imdbID);
-
-// Batman movies in for loop, to give each li element a poster
-const addBatmanMoviesToDom = function() {
-    for(let i=0 ; i < batmanMovie.length ; i++){
-        let newLiForBatmanMovie = document.createElement('li');
-        let batmanMovieParent = document.getElementById('movies').getElementsByTagName('ul')[0];
-        newLiForBatmanMovie.classList.add('batman-movies');
-        let batmanMoviePoster = document.createElement('img');
-        let batmanLinkImg = document.createElement('a');
-        batmanLinkImg.href="https://www.imdb.com/title/"+batmanImdbLinks[i]+"/";
-        batmanMovieParent.appendChild(newLiForBatmanMovie);
-        newLiForBatmanMovie.appendChild(batmanLinkImg);
-        batmanLinkImg.appendChild(batmanMoviePoster);
-        batmanMoviePoster.src = batmanMoviesAllPoster[i];
-        // console.log('Batman Movie poster ', i , batmanMoviesAllPoster[i]);
-    };
-};
-// addBatmanMoviesToDom();
+const latestMovie= movies.filter(movie => movie.year >=2014);
+const avengersMovies = movies.filter(movie =>movie.title.includes("Avenger"));
+const xMenMovies = movies.filter(movie => movie.title.includes("X-Men")); 
+const princessMovies= movies.filter((movie)=>movie.title.includes("Princess")); 
+const batmanMovies= movies.filter(movie => movie.title.includes("Batman")); 
 
 // Event listener for buttons
 
 // All movies parent
 let removeAllMoviesParent = document.getElementById('movies').getElementsByClassName('best-movies');
 
-// Click the first radio button and filter the movies to Latest Movies
-let clickLatestMovie = document.getElementById('latest-movie-btn') // have chnged querySelector to getElementById
-clickLatestMovie.addEventListener('click' , function(){
-    // console.log(removeAllMoviesParent);
+// correct the latest movies
+submitButtonParent.addEventListener('submit' , function(){
     removeAllMoviesParent[0].innerHTML=[];
-    addLatestMoviesToDom();
+    addMoviesToDom(matchedMovie);
+})
+
+
+let showLatest = document.getElementById('latest-movie-btn');
+showLatest.addEventListener('click' , function(){
+    removeAllMoviesParent[0].innerHTML=[];
+    addMoviesToDom(latestMovie);
+});
+let showAvengersMovie = document.getElementById('avengers-movie-btn');
+showAvengersMovie.addEventListener('click' , function(){
+    removeAllMoviesParent[0].innerHTML=[];
+    addMoviesToDom(avengersMovies);
+});
+let showXmen = document.getElementById('x-men-movies-btn');
+showXmen.addEventListener('click' , function(){
+    removeAllMoviesParent[0].innerHTML=[];
+    addMoviesToDom(xMenMovies);
+});
+let showPrincess = document.getElementById('princess-movies-btn');
+showPrincess.addEventListener('click' , function(){
+    removeAllMoviesParent[0].innerHTML=[];
+    addMoviesToDom(princessMovies);
+});
+let showBatman = document.getElementById('batman-movies-btn');
+showBatman.addEventListener('click' , function(){
+    removeAllMoviesParent[0].innerHTML=[];
+    addMoviesToDom(batmanMovies);
 });
 
-// Click the second radio button and filter the movies to Avengers Movies
-let clickAvengersMovie = document.getElementById('avengers-movie-btn');
-clickAvengersMovie.addEventListener('click' , function(){
-    // console.log(removeAllMoviesParent);
-    removeAllMoviesParent[0].innerHTML=[];
-    addAvengersMoviesToDom();
-});
-
-// Click the third radio button and filter the movies to X-Men Movies
-const clickXMenMovie = document.getElementById('x-men-movies-btn');
-clickXMenMovie.addEventListener('click' , function(){
-    // console.log(removeAllMoviesParent);
-    removeAllMoviesParent[0].innerHTML=[];
-    addXMenMoviesToDom();
-});
-
-// Click the fourt radio button and filter the movies to Princess Movies
-const clickPrincessMovie = document.getElementById('princess-movies-btn');
-clickPrincessMovie.addEventListener('change' , function(e){
-    removeAllMoviesParent[0].innerHTML=[];
-    addPrincessMoviesToDom();
-});
-
-// Click the fifth radio button and filter the movies to Batman Movies
-let clickBatmanMovie = document.getElementById('batman-movies-btn');
-clickBatmanMovie.addEventListener('click' , function(){
-    //console.log(removeAllMoviesParent);
-    removeAllMoviesParent[0].innerHTML=[];
-    addBatmanMoviesToDom();
-});
-
-// When the user click the Website's header it will refresh the page
+//refresh page
 const headerParent = document.getElementById('my-head');
 headerParent.style.cursor = 'pointer';
 headerParent.addEventListener('click' , function(e){
     location.reload()
 });
 
+
+
 // SEARCH BUTTOn
 
 function searchFunction(){
-    let inputButtonParent = document.getElementById('search-button');
+
+	let inputButtonParent = document.getElementById('search-button');
+    let userEntry = inputButtonParent.value.toUpperCase();
     let submitButtonParent = document.getElementById('submit-button');
     let moviesParent = document.querySelector('#best-movies-ID');
-    let movieTitle = movies.map((movie) => movie.title.toUpperCase());
-    //let movieName= allMoviesTitle.toUpperCase();
-    let userEntry = inputButtonParent.value.toUpperCase();
-    //console.log(moviesParent)
+    let matchedMovie= movies.find(movie => movie.title.toUpperCase.includes(userEntry));
+
+    
     if(movieTitle.includes(userEntry)){
-        moviesParent.innerHTML='';
-        console.log(userEntry);
-        addAllMoviesToDom().filter((movie) => movie.title.includes(userEntry));
+    	matchedMovies.push(movieTitle);
+        addMoviesToDom(matchedMovies);
+
     }
     else{
-console.log('there is no such movie')
 moviesParent.innerHTML=' Please search again';
 moviesParent.style.fontSize= '60px';
 moviesParent.style.color= 'red';
@@ -273,6 +108,9 @@ moviesParent.style.color= 'red';
     //     }
     // }
 }
+
+
+//searchFunction()
 
 /*
 // try switch
